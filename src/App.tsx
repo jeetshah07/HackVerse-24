@@ -1,35 +1,42 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import "./App.css";
 
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+import {
+  Route,
+  BrowserRouter as Router,
+  Routes,
+  Navigate,
+} from "react-router-dom";
+import Dashboard from "./pages/Dashboard";
+import Homepage from "./pages/Homepage";
+import Discover from "./pages/Discover";
+
+import { useAccount } from "wagmi";
+
+import AvailableNFT from "./pages/AvailableNFT";
 function App() {
-  const [count, setCount] = useState(0)
+  const { address, isConnected } = useAccount();
+  console.log(address, isConnected);
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <div>{address ?? "Loading address"}</div>
+      <Router>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Homepage />} />
+          <Route
+            path="/dashboard"
+            element={isConnected ? <Dashboard /> : <Navigate to="/" />}
+          />
+          <Route path="/discover" element={<Discover />}></Route>
+          <Route path="/available-nft/:id" element={<AvailableNFT />}></Route>
+        </Routes>
+      </Router>
+      <Footer />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
