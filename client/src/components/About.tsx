@@ -9,7 +9,7 @@ export default function About() {
                 About the <br /> Creators! <br /> Connect Now
               </h3>
               <p className="text-slate-500 font-Inter text-sm">
-                Join us in fostering community bonds. At Ani-Puraza, <br />
+                Join us in fostering community bonds. At NFT-flix, <br />
                 we're dedicated to connecting with our community to <br /> share
                 experiences, support one another, and create a vibrant,
                 inclusive space for all.
