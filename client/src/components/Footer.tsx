@@ -10,11 +10,11 @@ export default function Footer() {
             <div className="flex flex-row gap-5">
               <img
                 className="w-6 h-6 my-1 ml-2"
-                src="https://slwehdbwpcxuqrwxmwqq.supabase.co/storage/v1/object/public/resources/Dragonball-removebg.png"
+                src="https://slwehdbwpcxuqrwxmwqq.supabase.co/storage/v1/object/public/resources/naruto%20logo.png"
                 alt="logo"
               />
               <h3 className="text-2xl text-white font-Sora font-semibold tracking-wide">
-                OtakuVerse
+              Ani-Puraza
               </h3>
             </div>
             <div className="flex flex-row justify-between items-center text-slate-500 transition-all ease-in-out delay-200 text-sm font-Inter ">

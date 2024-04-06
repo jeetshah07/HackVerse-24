@@ -114,8 +114,8 @@ export default function Description() {
               </div>
               <div className="card-body border border-gray-900 rounded-xl px-8 py-4 basis-1/3 h-full flex flex-col justify-center lg:justify-start">
                 <h3 className="mt-6 text-white text-xl md:text-2xl font-Sora text-center lg:text-start">
-                  Top NFT at a lower
-                  <br className="hidden lg:block" /> price
+                  Top NFT's to gain
+                  <br className="hidden lg:block" /> through streaming
                 </h3>
                 <div className="flex flex-row gap-4 mx-auto lg:mx-0 mt-7">
                   <img

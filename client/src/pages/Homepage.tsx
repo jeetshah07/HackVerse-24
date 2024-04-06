@@ -5,7 +5,7 @@ import CardCarousel from "../components/CardCarousel";
 import Description from "../components/Description";
 import Overline from "../components/Overline";
 import About from "../components/About";
-import NFTdivider from "../components/NFTdivider";
+// import NFTdivider from "../components/NFTdivider";
 
 export default function Homepage() {
   return (
@@ -15,7 +15,7 @@ export default function Homepage() {
       <Description />
       <Overline />
       <About />
-      <NFTdivider />
+      {/* <NFTdivider /> */}
     </div>
   );
 }

@@ -36,7 +36,7 @@ export default function Banner() {
           <div className="w-48">
             <img
               className="w-full"
-              src="https://slwehdbwpcxuqrwxmwqq.supabase.co/storage/v1/object/public/resources/Shardeum_WhiteTXT.png"
+              src="https://slwehdbwpcxuqrwxmwqq.supabase.co/storage/v1/object/public/resources/Aptos%20logo%20(1).png"
               alt="Sponsored"
             />
           </div>
