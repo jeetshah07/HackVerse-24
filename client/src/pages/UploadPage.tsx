@@ -49,7 +49,7 @@ function UploadPage() {
         <img
           className="img-height-50 img-fit=scale-down"
           src={`${process.env.REACT_APP_GATEWAY_URL}/ipfs/${cid}`}
-          alt="ipfs image"
+          alt="ipfs"
         />
       )}
     </div>

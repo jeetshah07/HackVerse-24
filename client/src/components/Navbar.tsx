@@ -2,7 +2,7 @@ import { useState } from "react";
 import logo from "../images/Sygnet.png";
 import { Link } from "react-router-dom";
 
-import { Layout, Row, Col } from "antd";
+// import { Layout, Row, Col } from "antd";
 
 import { WalletSelector } from "@aptos-labs/wallet-adapter-ant-design";
 import "@aptos-labs/wallet-adapter-ant-design/dist/index.css";
@@ -69,6 +69,7 @@ export default function Navbar() {
             <Link to="/discover" className="text-slate-400 hover:text-white">
               Discover
             </Link>
+
             <Link
               to="/upload-images"
               className="text-slate-400 hover:text-white"
