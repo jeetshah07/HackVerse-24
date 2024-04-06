@@ -2,6 +2,8 @@ import { useState } from "react";
 import logo from "../images/Sygnet.png";
 import { Link } from "react-router-dom";
 
+import { Layout, Row, Col } from "antd";
+
 export default function Navbar() {
   const [isActive, setActive] = useState(false);
 
@@ -22,7 +24,7 @@ export default function Navbar() {
               />
             </a>
             <Link to="/" className="ml-4 text-xl font-bold text-gray-300">
-            Ani-Puraza
+              Ani-Puraza
             </Link>
           </div>
           <div className="lg:hidden flex">
@@ -67,6 +69,19 @@ export default function Navbar() {
           </div>
           <div className="nav-contact basis-3/12 hidden lg:flex justify-end gap-3 items-center text-xs font-semibold font-Sora">
             {/*TODO: ADD BUTTON HERE <ConnectButton /> */}
+            <Layout>
+              <Row align="middle">
+                <Col span={10} offset={2}>
+                  <h1>Our todolist</h1>
+                </Col>
+                <Col
+                  span={12}
+                  style={{ textAlign: "right", paddingRight: "200px" }}
+                >
+                  <h1>Connect Wallet</h1>
+                </Col>
+              </Row>
+            </Layout>
           </div>
           <div role="dialog" aria-modal={isActive ? "false" : "true"}>
             <div

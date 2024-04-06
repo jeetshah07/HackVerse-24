@@ -13,8 +13,9 @@ import {
 import Dashboard from "./pages/Dashboard";
 import Homepage from "./pages/Homepage";
 import Discover from "./pages/Discover";
-
 import AvailableNFT from "./pages/AvailableNFT";
+
+import { Layout, Row, Col } from "antd";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
           <Route
             path="/dashboard"
             // element={isConnected ? <Dashboard /> : <Navigate to="/" />}
+            element={<Dashboard />}
           />
           <Route path="/discover" element={<Discover />}></Route>
           <Route path="/available-nft/:id" element={<AvailableNFT />}></Route>
