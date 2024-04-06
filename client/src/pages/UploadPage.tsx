@@ -42,15 +42,27 @@ function UploadPage() {
 
   return (
     <div className="min-h-screen flex flex-col justify-center items-center text-white">
-      <label className="form-label"> Choose File</label>
-      <input type="file" onChange={changeHandler} />
-      <button onClick={handleSubmission}>Submit</button>
+      <div className="bg-gray-800 p-4 rounded-md flex items-center">
+        <label className="form-label mr-2">
+          Choose File
+          <input type="file" onChange={changeHandler} className="hidden" />
+        </label>
+        <span>{selectedFile && selectedFile.name}</span>
+      </div>
+      <button
+        onClick={handleSubmission}
+        className="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+      >
+        Submit
+      </button>
       {cid && (
-        <img
-          className="img-height-50 img-fit=scale-down"
-          src={`${process.env.REACT_APP_GATEWAY_URL}/ipfs/${cid}`}
-          alt="ipfs"
-        />
+        <div className="mt-4">
+          <img
+            className="max-w-full h-auto max-h-64"
+            src={`${process.env.REACT_APP_GATEWAY_URL}/ipfs/${cid}`}
+            alt="ipfs image"
+          />
+        </div>
       )}
     </div>
   );
