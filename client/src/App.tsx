@@ -17,10 +17,14 @@ import AvailableNFT from "./pages/AvailableNFT";
 
 import { WalletSelector } from "@aptos-labs/wallet-adapter-ant-design";
 import "@aptos-labs/wallet-adapter-ant-design/dist/index.css";
+import { useWallet } from "@aptos-labs/wallet-adapter-react";
 
 import { Layout, Row, Col } from "antd";
+import UploadPage from "./pages/UploadPage";
 
 function App() {
+  const { account } = useWallet();
+
   return (
     <>
       {/* <div>{address ?? "Loading address"}</div> */}
@@ -30,10 +34,11 @@ function App() {
           <Route path="/" element={<Homepage />} />
           <Route
             path="/dashboard"
-            // element={isConnected ? <Dashboard /> : <Navigate to="/" />}
-            element={<Dashboard />}
+            element={account != null ? <Dashboard /> : <Navigate to="/" />}
+            // element={<Dashboard />}
           />
           <Route path="/discover" element={<Discover />}></Route>
+          <Route path="/upload-images" element={<UploadPage />}></Route>
           <Route path="/available-nft/:id" element={<AvailableNFT />}></Route>
         </Routes>
       </Router>

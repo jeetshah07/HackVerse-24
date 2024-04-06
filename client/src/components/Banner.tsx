@@ -35,7 +35,7 @@ export default function Banner() {
         <div className="sponsored-section flex justify-center items-center mt-20">
           <div className="w-48">
             <img
-              className="w-full"
+              className="w-50 h-10"
               src="https://slwehdbwpcxuqrwxmwqq.supabase.co/storage/v1/object/public/resources/Aptos%20logo%20(1).png"
               alt="Sponsored"
             />
