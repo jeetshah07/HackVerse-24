@@ -2,6 +2,11 @@ import { useState } from "react";
 import logo from "../images/Sygnet.png";
 import { Link } from "react-router-dom";
 
+// import { Layout, Row, Col } from "antd";
+
+import { WalletSelector } from "@aptos-labs/wallet-adapter-ant-design";
+import "@aptos-labs/wallet-adapter-ant-design/dist/index.css";
+
 export default function Navbar() {
   const [isActive, setActive] = useState(false);
 
@@ -22,7 +27,7 @@ export default function Navbar() {
               />
             </a>
             <Link to="/" className="ml-4 text-xl font-bold text-gray-300">
-            Ani-Puraza
+              NFT-flix
             </Link>
           </div>
           <div className="lg:hidden flex">
@@ -38,13 +43,13 @@ export default function Navbar() {
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
-                stroke-width="1.5"
+                strokeWidth="1.5"
                 stroke="currentColor"
                 aria-hidden="true"
               >
                 <path
                   stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeLinejoin="round"
                   d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
                 />
               </svg>
@@ -64,9 +69,18 @@ export default function Navbar() {
             <Link to="/discover" className="text-slate-400 hover:text-white">
               Discover
             </Link>
+
+            <Link
+              to="/upload-images"
+              className="text-slate-400 hover:text-white"
+            >
+              Upload
+            </Link>
           </div>
           <div className="nav-contact basis-3/12 hidden lg:flex justify-end gap-3 items-center text-xs font-semibold font-Sora">
             {/*TODO: ADD BUTTON HERE <ConnectButton /> */}
+
+            <WalletSelector />
           </div>
           <div role="dialog" aria-modal={isActive ? "false" : "true"}>
             <div
@@ -76,7 +90,7 @@ export default function Navbar() {
               <div className="flex h-9 items-center justify-between">
                 <div className="flex">
                   <a href="#home" className="-m-1.5 p-1.5">
-                    <span className="sr-only">Ani-Puraza</span>
+                    <span className="sr-only">NFT-flix</span>
                     <img className="h-8" src={logo} alt="" />
                   </a>
                 </div>
@@ -93,13 +107,13 @@ export default function Navbar() {
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"
                       viewBox="0 0 24 24"
-                      stroke-width="1.5"
+                      strokeWidth="1.5"
                       stroke="currentColor"
                       aria-hidden="true"
                     >
                       <path
                         stroke-linecap="round"
-                        stroke-linejoin="round"
+                        strokeLinejoin="round"
                         d="M6 18L18 6M6 6l12 12"
                       />
                     </svg>
