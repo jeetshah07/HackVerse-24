@@ -15,6 +15,9 @@ import Homepage from "./pages/Homepage";
 import Discover from "./pages/Discover";
 import AvailableNFT from "./pages/AvailableNFT";
 
+import { WalletSelector } from "@aptos-labs/wallet-adapter-ant-design";
+import "@aptos-labs/wallet-adapter-ant-design/dist/index.css";
+
 import { Layout, Row, Col } from "antd";
 
 function App() {

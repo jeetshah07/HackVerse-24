@@ -147,7 +147,7 @@ export default function About() {
                     </div>
                   </div>
                 </div>
-                <div className="p-4 pr-48 rounded-3xl opacity-25 xl:blur-none xl:opacity-100 border border-gray-800 bg-midnight flex justify-start items-start">
+                {/* <div className="p-4 pr-48 rounded-3xl opacity-25 xl:blur-none xl:opacity-100 border border-gray-800 bg-midnight flex justify-start items-start">
                   <img
                     src="https://slwehdbwpcxuqrwxmwqq.supabase.co/storage/v1/object/public/resources/Ujjawal_pfp.jpg"
                     alt="Avatar Profile"
@@ -190,7 +190,7 @@ export default function About() {
                       </div>
                     </div>
                   </div>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>
