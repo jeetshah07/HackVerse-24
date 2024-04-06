@@ -1,7 +1,6 @@
 import { useState } from "react";
-import OTVTOKENABI from "../abis/NFTContract.js";
-import constants from "../helper/constants.js";
-import { useAccount, useWriteContract } from "wagmi";
+// import OTVTOKENABI from "../abis/NFTContract.js";
+// import constants from "../helper/constants.js";
 import { Link } from "react-router-dom";
 
 export default function Dashboard() {
@@ -77,14 +76,14 @@ export default function Dashboard() {
 
     // Add more objects for other images
   ];
-  const contractAddress = constants.CONRACTADDR;
-  const contractABI = OTVTOKENABI;
-  const { address } = useAccount();
+  // const contractAddress = constants.CONRACTADDR;
+  // const contractABI = OTVTOKENABI;
+  // const { address } = useAccount();
 
   /*
    * Create a method that gets all waves from your contract
    */
-  const { writeContract } = useWriteContract();
+  // const { writeContract } = useWriteContract();
 
   return (
     <div>

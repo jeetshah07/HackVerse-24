@@ -1,6 +1,5 @@
 import { useState } from "react";
 import logo from "../images/Sygnet.png";
-import { ConnectButton } from "@rainbow-me/rainbowkit";
 import { Link } from "react-router-dom";
 
 export default function Navbar() {
@@ -67,7 +66,7 @@ export default function Navbar() {
             </Link>
           </div>
           <div className="nav-contact basis-3/12 hidden lg:flex justify-end gap-3 items-center text-xs font-semibold font-Sora">
-            <ConnectButton />
+            {/*TODO: ADD BUTTON HERE <ConnectButton /> */}
           </div>
           <div role="dialog" aria-modal={isActive ? "false" : "true"}>
             <div
@@ -130,9 +129,7 @@ export default function Navbar() {
                     </a>
                   </div>
                   <div className="py-6">
-                    <div>
-                      <ConnectButton />
-                    </div>
+                    <div>{/*TODO: ADD BUTTON HERE <ConnectButton /> */}</div>
                   </div>
                 </div>
               </div>

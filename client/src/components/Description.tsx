@@ -1,6 +1,3 @@
-import { ConnectButton } from "@rainbow-me/rainbowkit";
-import RightColorPalette from "../images/Right-ColorPalette.png";
-
 import SilverHand from "../images/Silver-Hand.png";
 
 export default function Description() {
