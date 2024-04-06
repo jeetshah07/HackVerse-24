@@ -1,5 +1,4 @@
 import { useParams } from "react-router-dom";
-import Dashboard from "./Dashboard";
 
 export default function AvailableNFT() {
   // Get the anime ID from the URL parameter
