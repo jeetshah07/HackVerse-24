@@ -1,6 +1,6 @@
 const constants = {
   MODULEADDR:
-    "0x5d8a475a00c0c8f86b35c4410e564adbc1f062c3034e7c2c9a9797686e79863d",
+    "0xfc1acad6ac59c8a1c44dd930e9a55f4d3a5ba5a560e59b27651d4a70649191bf",
 };
 
 export default constants;
