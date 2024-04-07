@@ -11,7 +11,7 @@
 
 
 
-The NFT-flix anime fanbase platform addresses the lack of engagement and tangible rewards in traditional anime-watching platforms. By leveraging blockchain technology, it introduces a decentralized ranking system and issues unique NFT rewards based on users' activity. This fosters community interaction, empowers users through ownership of digital collectibles, and ensures transparency and autonomy in the reward process. Ultimately, the project revolutionizes the anime-watching experience by incentivizing engagement, providing tangible rewards, and promoting decentralization within the anime community.
+The NFTflix anime fanbase platform addresses the lack of engagement and tangible rewards in traditional anime-watching platforms. By leveraging blockchain technology, it introduces a decentralized ranking system and issues unique NFT rewards based on users' activity. This fosters community interaction, empowers users through ownership of digital collectibles, and ensures transparency and autonomy in the reward process. Ultimately, the project revolutionizes the anime-watching experience by incentivizing engagement, providing tangible rewards, and promoting decentralization within the anime community.
 
 
 
@@ -71,7 +71,7 @@ To deploy this project run
 
 ## Installation
 
-Install NFT-flix with npm
+Install NFTFlix with npm
 
 1. Clone the Repository
 

@@ -73,7 +73,7 @@ function UploadPage() {
       const metaData = {
         name: { name },
         description: { description },
-        external_url: { url },
+        external_url: process.env.REACT_APP_GATEWAY_URL,
         image: `ipfs://${resData.IpfsHash}`,
       };
       console.log(metaData);

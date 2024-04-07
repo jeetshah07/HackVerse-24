@@ -27,7 +27,7 @@ export default function Navbar() {
               />
             </a>
             <Link to="/" className="ml-4 text-xl font-bold text-gray-300">
-              NFT-flix
+              NFTFlix
             </Link>
           </div>
           <div className="lg:hidden flex">
@@ -90,7 +90,7 @@ export default function Navbar() {
               <div className="flex h-9 items-center justify-between">
                 <div className="flex">
                   <a href="#home" className="-m-1.5 p-1.5">
-                    <span className="sr-only">NFT-flix</span>
+                    <span className="sr-only">NFTFlix</span>
                     <img className="h-8" src={logo} alt="" />
                   </a>
                 </div>

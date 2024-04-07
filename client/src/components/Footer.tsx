@@ -14,7 +14,7 @@ export default function Footer() {
                 alt="logo"
               />
               <h3 className="text-lg text-white font-Sora font-semibold tracking-wide">
-                NFT-flix
+                NFTFlix
               </h3>
             </div>
             <div className="flex flex-row justify-between items-center text-slate-500 transition-all ease-in-out delay-200 text-sm font-Inter">
