@@ -31,7 +31,6 @@ function UploadPage() {
       const result = await aptos.waitForTransaction({
         transactionHash: response.hash,
       });
-      console.log("ZAID");
       console.log(JSON.stringify(response));
       console.log(JSON.stringify(result));
     } catch (error: any) {
