@@ -1,73 +1,3 @@
-/// This module is the part 2 of our NFT Move tutorial, building on top of part 1. In this part of the tutorial, we introduce the concept of a resource
-/// account and add a resource account on top of the previous tutorial.
-///
-/// Concept: resource account
-/// A resource account is a developer feature used to manage resources independent of an account managed by a user, specifically publishing modules and automatically signing for transactions.
-/// In this module, we are using a resource account to publish this module and programmatically sign for token minting and transfering transactions.
-///
-/// How to interact with this module:
-/// 1. Create an nft-receiver account (in addition to the source account we created in the last part). We'll use this account to receive an NFT in this tutorial.
-/// aptos init --profile nft-receiver
-///
-/// 2. Publish the module under a resource account.
-/// - 2.a Make sure you're in the right directory.
-/// Run the following command in directory `aptos-core/aptos-move/move-examples/mint_nft/2-Using-Resource-Account`
-/// - 2.b Run the following CLI command to publish the module under a resource account.
-/// aptos move create-resource-account-and-publish-package --seed [seed] --address-name mint_nft --profile default --named-addresses source_addr=[default account's address]
-///
-/// example output:
-    /*
-    2-Using-Resource-Account % aptos move create-resource-account-and-publish-package --seed 1235 --address-name mint_nft --profile default --named-addresses source_addr=a911e7374107ad434bbc5369289cf5855c3b1a2938a6bfce0776c1d296271cde
-    Compiling, may take a little while to download git dependencies...
-    INCLUDING DEPENDENCY AptosFramework
-    INCLUDING DEPENDENCY AptosStdlib
-    INCLUDING DEPENDENCY AptosToken
-    INCLUDING DEPENDENCY MoveStdlib
-    BUILDING Examples
-    Do you want to publish this package under the resource account's address 3ad2cce668ed2186da580b95796ffe8534566583363cd3b03547bec9542662dc? [yes/no] >
-    yes
-    package size 2928 bytes
-    Do you want to submit a transaction for a range of [1371100 - 2056600] Octas at a gas unit price of 100 Octas? [yes/no] >
-    yes
-    {
-      "Result": "Success"
-    }
-    */
-///
-/// 3. Go over our newly added code on resource account.
-/// - 3.a In 2.b, we published this module under the resource account's address using the CLI command `create-resource-account-and-publish-package`.
-/// Publishing a module under a resource account means that we will not be able to update the module, and the module will be immutable and autonomous.
-/// This introduces a challenge:
-/// What if we want to update the configuration of this module? In the next part of this tutorial, we will go over how to add an admin account and admin functions
-/// to update the configuration of this module without interfering with the automaticity and immunity that come with using a resource account.
-/// - 3.b In `init_module`, we store the resource account's signer capability within `ModuleData` for later usage.
-/// - 3.c In `mint_event_ticket`, we create a resource signer by calling `account::create_signer_with_capability(&module_data.signer_cap)` to programmatically sign for `token::mint_token()` and `token::direct_transfer()` functions.
-/// If we didn't use a resource account for this module, we would need to manually sign for those transactions.
-///
-/// 4. Mint an NFT to the nft-receiver account
-/// - 4.a Run the following command
-/// aptos move run --function-id 46253fce25e30892b97f6ccd8db1fa93b2015b58c103d13c4bda75f8c979048e::create_nft_with_resource_account::mint_event_ticket --profile nft-receiver
-///
-/// example output:
-    /*
-    2-Using-Resource-Account % aptos move run --function-id 55328567ff8aa7d242951af7fc1872746fbeeb89dfed0e1ee2ff71b9bf4469d6::create_nft_with_resource_account::mint_event_ticket --profile nft-receiver
-    Do you want to submit a transaction for a range of [502900 - 754300] Octas at a gas unit price of 100 Octas? [yes/no] >
-    yes
-    {
-      "Result": {
-        "transaction_hash": "0x720c06eafe77ff385dffcf31c6217839aab3185b65972d6900adbcc3838a4425",
-        "gas_used": 5029,
-        "gas_unit_price": 100,
-        "sender": "7d69283af198b1265d17a305ff0cca6da1bcee64d499ce5b35b659098b3a82dc",
-        "sequence_number": 1,
-        "success": true,
-        "timestamp_us": 1669662022240704,
-        "version": 12784585,
-        "vm_status": "Executed successfully"
-      }
-    }
-    */
-/// - 4.b Check out the transaction on https://explorer.aptoslabs.com/ by searching for the transaction hash.
 module mint_nft::nftflix {
     use std::string;
     use std::vector;
@@ -217,3 +147,67 @@ module mint_nft::nftflix {
     }
 
 }
+
+/// How to interact with this module:
+/// 1. Create an nft-receiver account (in addition to the source account we created in the last part). We'll use this account to receive an NFT in this tutorial.
+/// aptos init --profile nft-receiver
+///
+/// 2. Publish the module under a resource account.
+/// - 2.a Make sure you're in the right directory.
+/// Run the following command in directory `aptos-core/aptos-move/move-examples/mint_nft/2-Using-Resource-Account`
+/// - 2.b Run the following CLI command to publish the module under a resource account.
+/// aptos move create-resource-account-and-publish-package --seed [seed] --address-name mint_nft --profile default --named-addresses source_addr=[default account's address]
+///
+/// example output:
+    /*
+    2-Using-Resource-Account % aptos move create-resource-account-and-publish-package --seed 1235 --address-name mint_nft --profile default --named-addresses source_addr=a911e7374107ad434bbc5369289cf5855c3b1a2938a6bfce0776c1d296271cde
+    Compiling, may take a little while to download git dependencies...
+    INCLUDING DEPENDENCY AptosFramework
+    INCLUDING DEPENDENCY AptosStdlib
+    INCLUDING DEPENDENCY AptosToken
+    INCLUDING DEPENDENCY MoveStdlib
+    BUILDING Examples
+    Do you want to publish this package under the resource account's address 3ad2cce668ed2186da580b95796ffe8534566583363cd3b03547bec9542662dc? [yes/no] >
+    yes
+    package size 2928 bytes
+    Do you want to submit a transaction for a range of [1371100 - 2056600] Octas at a gas unit price of 100 Octas? [yes/no] >
+    yes
+    {
+      "Result": "Success"
+    }
+    */
+///
+/// 3. Go over our newly added code on resource account.
+/// - 3.a In 2.b, we published this module under the resource account's address using the CLI command `create-resource-account-and-publish-package`.
+/// Publishing a module under a resource account means that we will not be able to update the module, and the module will be immutable and autonomous.
+/// This introduces a challenge:
+/// What if we want to update the configuration of this module? In the next part of this tutorial, we will go over how to add an admin account and admin functions
+/// to update the configuration of this module without interfering with the automaticity and immunity that come with using a resource account.
+/// - 3.b In `init_module`, we store the resource account's signer capability within `ModuleData` for later usage.
+/// - 3.c In `mint_event_ticket`, we create a resource signer by calling `account::create_signer_with_capability(&module_data.signer_cap)` to programmatically sign for `token::mint_token()` and `token::direct_transfer()` functions.
+/// If we didn't use a resource account for this module, we would need to manually sign for those transactions.
+///
+/// 4. Mint an NFT to the nft-receiver account
+/// - 4.a Run the following command
+/// aptos move run --function-id 46253fce25e30892b97f6ccd8db1fa93b2015b58c103d13c4bda75f8c979048e::create_nft_with_resource_account::mint_event_ticket --profile nft-receiver
+///
+/// example output:
+    /*
+    2-Using-Resource-Account % aptos move run --function-id 55328567ff8aa7d242951af7fc1872746fbeeb89dfed0e1ee2ff71b9bf4469d6::create_nft_with_resource_account::mint_event_ticket --profile nft-receiver
+    Do you want to submit a transaction for a range of [502900 - 754300] Octas at a gas unit price of 100 Octas? [yes/no] >
+    yes
+    {
+      "Result": {
+        "transaction_hash": "0x720c06eafe77ff385dffcf31c6217839aab3185b65972d6900adbcc3838a4425",
+        "gas_used": 5029,
+        "gas_unit_price": 100,
+        "sender": "7d69283af198b1265d17a305ff0cca6da1bcee64d499ce5b35b659098b3a82dc",
+        "sequence_number": 1,
+        "success": true,
+        "timestamp_us": 1669662022240704,
+        "version": 12784585,
+        "vm_status": "Executed successfully"
+      }
+    }
+    */
+/// - 4.b Check out the transaction on https://explorer.aptoslabs.com/ by searching for the transaction hash.
