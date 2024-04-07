@@ -21,19 +21,19 @@ export default function Overline() {
             <div className="flex flex-col justify-center items-center">
               <img className="w-8 h-8" src={ArtworkIcon} alt="user icon" />
               <div className="text-white text-4xl md:text-5xl font-Sora text-center my-4">
-                52,5k
+                5.5k
               </div>
               <div className="text-slate-500 text-sm font-Inter text-center ">
-                Artworks
+                Anime
               </div>
             </div>
             <div className="flex flex-col justify-center items-center">
               <img className="w-8 h-8" src={ArtistIcon} alt="user icon" />
               <div className="text-white text-4xl md:text-5xl font-Sora text-center my-4">
-                17,5k
+                17.5k
               </div>
               <div className="text-slate-500 text-sm font-Inter text-center ">
-                Artists
+                NFT's
               </div>
             </div>
             <div className="flex flex-col justify-center items-center">
