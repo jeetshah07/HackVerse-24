@@ -4,7 +4,7 @@ version = "1.0.0"
 authors = []
 
 [addresses]
-nftflix_addr='0x7e1d31bb44393ddf32233417dccec32865d090c309f77fc7017e755484436b47'
+nftflix_addr='199ff2c307cb15e224688b52499c4a9ddac1ce0d0fdeb5f6d54c4962458b234f'
 admin_addr='d17af7ce7125cd50e9ca206ca88991ea97080f152a46f7fcdc7417a9be8f184c'
 
 [dev-addresses]

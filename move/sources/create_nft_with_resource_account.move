@@ -80,6 +80,7 @@ module mint_nft::nftflix {
     use aptos_framework::resource_account;
     use aptos_framework::account;
 
+
     // This struct stores an NFT collection's relevant information
     struct ModuleData has key {
         // Storing the signer capability here, so the module can programmatically sign for transactions
@@ -175,4 +176,44 @@ module mint_nft::nftflix {
             vector::empty<String>(),
         );
     }
+
+    public entry fun create_token_script(
+    resource_signer: &signer,
+    token_name: String,
+    description: String,
+    token_uri: String,
+    ){
+        let _collection_name = string::utf8(b"NFTFlix Anime");
+        let _description = string::utf8(b"Watch Animes and Earn NFTs");
+        let tokendata_id = token::create_tokendata(
+                resource_signer,
+                _collection_name,
+                token_name,
+                description,
+                0,
+                token_uri,
+                signer::address_of(resource_signer),
+                1,
+                0,
+                // This variable sets if we want to allow mutation for token maximum, uri, royalty, description, and properties.
+                // Here we enable mutation for properties by setting the last boolean in the vector to true.
+                token::create_token_mutability_config(
+                    &vector<bool>[ false, false, false, false, true ]
+                ),
+                // We can use property maps to record attributes related to the token.
+                // In this example, we are using it to record the receiver's address.
+                // We will mutate this field to record the user's address
+                // when a user successfully mints a token in the `mint_event_ticket()` function.
+                vector<String>[string::utf8(b"given_to")],
+                vector<vector<u8>>[b""],
+                vector<String>[ string::utf8(b"address") ],
+            );
+
+        token::mint_token(
+            resource_signer,
+            tokendata_id,
+            1
+        );
+    }
+
 }
