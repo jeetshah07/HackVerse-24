@@ -1,11 +1,43 @@
 import { useState } from "react";
+import { Aptos } from "@aptos-labs/ts-sdk";
+import {
+  useWallet,
+  InputTransactionData,
+} from "@aptos-labs/wallet-adapter-react";
+import constants from "../helpers/constants";
 
 function UploadPage() {
+  const aptos = new Aptos();
+  const { account, signAndSubmitTransaction } = useWallet();
   const [selectedFile, setSelectedFile]: any = useState();
   const [cid, setCid]: any = useState();
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [url, setUrl] = useState("");
+
+  const mintNFT = async () => {
+    if (!account) return [];
+
+    const transaction: InputTransactionData = {
+      data: {
+        function: `${constants.MODULEADDR}::nftflix::mint_event_ticket`,
+        functionArguments: [],
+      },
+    };
+    try {
+      // sign and submit transaction to chain
+      const response = await signAndSubmitTransaction(transaction);
+      // wait for transaction
+      const result = await aptos.waitForTransaction({
+        transactionHash: response.hash,
+      });
+      console.log("ZAID");
+      console.log(JSON.stringify(response));
+      console.log(JSON.stringify(result));
+    } catch (error: any) {
+      console.log(error);
+    }
+  };
 
   const changeHandler = (event: any) => {
     setSelectedFile(event.target.files[0]);
@@ -107,6 +139,12 @@ function UploadPage() {
         className="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
       >
         Submit
+      </button>
+      <button
+        onClick={mintNFT}
+        className="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+      >
+        TEST ZAID
       </button>
       {cid && (
         <div className="mt-4">
